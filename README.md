@@ -7,8 +7,8 @@ type stripping), in-memory storage.
 
 | Method | Path | Body / params | Response |
 |---|---|---|---|
-| `GET` | `/bookmarks` | — | `200` list of bookmarks |
-| `POST` | `/bookmarks` | `{ "url": "https://…", "title": "…" }` | `201` created bookmark · `400` invalid body |
+| `GET` | `/bookmarks` | optional `?tag=<tag>` (exact, case-insensitive) | `200` list of bookmarks, newest first · `400` `invalid_query` |
+| `POST` | `/bookmarks` | `{ "url": "https://…", "title": "…", "tags": ["…"] }` (`tags` optional: up to 10 distinct, 1–30 chars of letters, digits or hyphens; lower-cased, de-duplicated) | `201` created bookmark (always has `tags`) · `400` `invalid_body` |
 | `DELETE` | `/bookmarks/:id` | `id` | `204` · `404` unknown id |
 
 ## Run
