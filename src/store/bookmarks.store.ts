@@ -3,6 +3,7 @@ export interface Bookmark {
   url: string;
   title: string;
   createdAt: string;
+  tags: string[];
 }
 
 export interface BookmarkStore {
